@@ -2,18 +2,10 @@ from sentence_transformers import SentenceTransformer
 import pinecone
 import openai
 import streamlit as st
-from openai import OpenAI
 OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 PINE_API_KEY = st.secrets["PINE_API_KEY"]
 openai.api_key = OPENAI_API_KEY
 model = SentenceTransformer('all-MiniLM-L6-v2')
-
-from openai import OpenAI
-
-client = OpenAI(
-    # This is the default and can be omitted
-    api_key=openai.api_key
-)
 
 pinecone.init(api_key=PINE_API_KEY, environment="gcp-starter")
 index = pinecone.Index('collagechatbot')
