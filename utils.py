@@ -9,7 +9,7 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 
 
 pinecone.init(api_key=PINE_API_KEY, environment="gcp-starter")
-index = pinecone.Index('genrativebotdb')
+index = pinecone.Index('collagechatbot')
 
 def find_match(input):
     input_em = model.encode(input).tolist()
@@ -21,7 +21,7 @@ def query_refiner(conversation, query):
     response = openai.Completion.create(
     model="text-davinci-003",
     prompt=f"Given the following user query and conversation log, formulate a question that would be the most relevant to provide the user with an answer from a knowledge base.\n\nCONVERSATION LOG: \n{conversation}\n\nQuery: {query}\n\nRefined Query:",
-    temperature=0.7,
+    temperature=0.3,
     max_tokens=256,
     top_p=1,
     frequency_penalty=0,
