@@ -7,7 +7,13 @@ OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 PINE_API_KEY = st.secrets["PINE_API_KEY"]
 openai.api_key = OPENAI_API_KEY
 model = SentenceTransformer('all-MiniLM-L6-v2')
-client = OpenAI()
+
+from openai import OpenAI
+
+client = OpenAI(
+    # This is the default and can be omitted
+    api_key=OPENAI_API_KEY
+)
 
 pinecone.init(api_key=PINE_API_KEY, environment="gcp-starter")
 index = pinecone.Index('collagechatbot')
