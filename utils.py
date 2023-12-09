@@ -2,6 +2,7 @@ from sentence_transformers import SentenceTransformer
 import pinecone
 import openai
 import streamlit as st
+from openai import OpenAI
 OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 PINE_API_KEY = st.secrets["PINE_API_KEY"]
 openai.api_key = OPENAI_API_KEY
