@@ -12,7 +12,7 @@ from openai import OpenAI
 
 client = OpenAI(
     # This is the default and can be omitted
-    api_key=OPENAI_API_KEY
+    api_key=openai.api_key
 )
 
 pinecone.init(api_key=PINE_API_KEY, environment="gcp-starter")
