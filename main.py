@@ -7,6 +7,7 @@ from langchain.prompts import (
     ChatPromptTemplate,
     MessagesPlaceholder
 )
+# importing streamlit for ui creation
 import streamlit as st
 from streamlit_chat import message
 from utils import *
